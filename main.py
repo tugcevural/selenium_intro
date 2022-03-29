@@ -1,16 +1,17 @@
-# This is a sample Python script.
+from selenium import webdriver
+from selenium.webdriver.common.by import By
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+chrome_driver_path = "C:\\Users\\tugce\\Desktop\\selenium_intro\\chromedriver.exe"
+driver = webdriver.Chrome(executable_path=chrome_driver_path)
+driver.get("https://www.trendyol.com/gap/erkek-bebek-ekose-poplin-gomlek-p-46438659?boutiqueId=594587&merchantId=107130")
 
+price = driver.find_element(By.CLASS_NAME, 'prc-dsc')
+print(price.text)
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+box=driver.find_element(By.CLASS_NAME, "search-box")
+print(box.get_attribute("placeholder"))
 
+#----------------------------------------------------
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+driver2 = webdriver.Chrome(executable_path=chrome_driver_path)
+driver2.get("https://python.org")
